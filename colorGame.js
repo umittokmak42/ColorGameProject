@@ -1,5 +1,5 @@
-var colors = generateRandomColors(6);
-
+var numberOfSquares = 6;
+var colors = generateRandomColors(numberOfSquares);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
@@ -12,19 +12,35 @@ var hardBtn = document.getElementById("hardBtn");
 easyBtn.addEventListener("click", function(){
     easyBtn.classList.add("selected");
     hardBtn.classList.remove("selected");
-    colors = generateRandomColors(3);
-    pickedColor = pickColor;
+    numberOfSquares = 3;
+    colors = generateRandomColors(numberOfSquares);
+    pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
+    for(var i=0; i<squares.length; i++){
+        if(colors[i]){
+            squares[i].style.backgroundColor = colors[i];
+        } else {
+            squares[i].style.display = "none";
+        }
+    }
 })
 
 hardBtn.addEventListener("click", function(){
-    easyBtn.classList.remove("selected");
     hardBtn.classList.add("selected");
+    easyBtn.classList.remove("selected");
+    numberOfSquares = 6;
+    colors = generateRandomColors(numberOfSquares);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    for(var i=0; i<squares.length; i++){
+            squares[i].style.backgroundColor = colors[i];
+            squares[i].style.display = "block";
+    }
 })
 
 resetButton.addEventListener("click", function(){
     // generate all new colors
-    colors = generateRandomColors(6);
+    colors = generateRandomColors(numberOfSquares);
     // pick a new random color from array
     pickedColor = pickColor();
     // change colorDisplay to match picked color
@@ -33,10 +49,11 @@ resetButton.addEventListener("click", function(){
     for(var i = 0; i<squares.length; i++){
         squares[i].style.backgroundColor = colors[i];
     }
-    h1.style.backgroundColor = "#232323";
+    h1.style.backgroundColor = "steelblue";
 })
 
 colorDisplay.textContent = pickedColor;
+
 
 for(var i=0; i<squares.length; i++){
     // add initial colors to squares

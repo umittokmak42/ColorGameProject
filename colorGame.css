@@ -1,5 +1,7 @@
 body {
     background-color: #232323;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .square {
@@ -16,7 +18,14 @@ body {
 }
 
 h1{
+    text-align: center;
+    line-height: 1.1;
+    font-weight: normal;
     color: white;
+    background-color: steelblue;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 20px 0;
 }
 
 #stripe{
@@ -28,4 +37,25 @@ h1{
 
 .selected{
     background: blue;
+}
+
+#colorDisplay{
+    font-size: 200%;
+}
+
+button{
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    font-weight: 700;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-size: inherit;
+}
+
+#message{
+    display: inline-block;
+    width: 20%;
 }
